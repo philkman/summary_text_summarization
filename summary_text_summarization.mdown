@@ -1,7 +1,7 @@
 ---
 title: "Text Summarization - Eine Übersicht"
 author: "Philip Kurmann, philip@kman.ch"
-date: "18 Juni 2017"
+date: "30 Juni 2017"
 bibliography: summary_text_summarization.bib
 csl: chicago-author-date-de.csl
 xelatex: true
@@ -13,7 +13,7 @@ geometry: margin=1.7cm
 # Einführung
 Durch das Internet, welches in den späten 1990er Jahren seinen Durchbruch schaffte, ist die Anzahl veröffentlichter Texte und Dokumente explodiert. Man ist heute einer Fülle von Informationen ausgesetzt, welche kein Mensch mehr bewältigen kann und es wird immer schwieriger, effizient und effektiv die richtigen Informationen zu finden.
 
-Ein Ansatz, um mit dieser Informationsflut besser umgehen zu können, ist die Erstellung, von automatischen Textzusammenfassungen. Dabei geht es darum, die Komplexität und die Länge eines Textes zu reduzieren, bei gleichzeitiger Erhaltung der essentiellen Informationen des original Dokuments. Erste Forschungen zum Thema Automatische Textzusammenfassung begannen in den 1960er Jahren. Durch das enorme Wachstum an Informationen und Dokumenten wurde das Interesse an solche Systemen jedoch immer grösser. In jüngster Zeit wird intensiv an diesem Thema geforscht.
+Ein Ansatz, um mit dieser Informationsflut besser umgehen zu können ist die Erstellung, von automatischen Textzusammenfassungen. Dabei geht es darum, die Komplexität und die Länge eines Textes zu reduzieren, bei gleichzeitiger Erhaltung der essentiellen Informationen des Originaldokuments. Erste Forschungen zum Thema Automatische Textzusammenfassung begannen in den 1960er Jahren. Durch das enorme Wachstum an Informationen und Dokumenten wurde das Interesse an solchen Systemen jedoch immer grösser. In jüngster Zeit wird intensiv an diesem Thema geforscht.
 
 Automatische Textzusammenfassung kann für folgende Aufgaben hilfreich sein:
 
@@ -31,18 +31,18 @@ Wenn nun eine Textzusammenfassung automatisch durch einen Computer erstellt wird
 Man unterscheidet zwischen einem _extract_, bei dem (Teil-)Sätze und Textstellen aus den Originaldokumenten übernommen werden und einem _abstract_, bei dem die Inhalte mit neuen Sätzen zusammengefasst werden.
 
 ## Extraktion vs. Abstraktion
-Erstellt ein Mensch eine Zusammenfassung eines Textes, verwendet er dafür grösstenteils eigen Wörter und Sätze. So funktionieren professionelle Unternehmen, welche Textzusammenfassungen erstellen (Bsp.: Cliffs Notes).
+Erstellt ein Mensch eine Zusammenfassung eines Textes, verwendet er dafür grösstenteils eigene Wörter und Sätze. So funktionieren professionelle Unternehmen, welche Textzusammenfassungen erstellen (Bsp.: Cliffs Notes).
 
-Automatische Textzusammenfassung basiert auf statistischen, linguistischen und heuristischen Methoden. Das System berechnet, wie oft gewisse Schlüsselwörter in den Originaltexten vorkommen. Dabei werden die Frequenz der Schlüsselwörter in den Texten, in welchen Sätzen diese vorkommen und wo diese Sätze sich in den Originaltexten befinden berücksichtigt, um die Schlüsselstellen des Textes zu ermitteln. Zusätzlich können auch Textformatierungen berücksichtigt werden.
+Automatische Textzusammenfassung basiert auf statistischen, linguistischen und heuristischen Methoden. Das System berechnet, wie oft gewisse Schlüsselwörter in den Originaltexten vorkommen. Dabei werden mehrere Faktoren berücksichtigt um die Schlüsselstellen eines Textes zu ermitteln: Die Frequenz der Schlüsselwörter, in welchen Sätzen diese vorkommen und die Position der Sätze in den Originaltexten. Zusätzlich können auch Textformatierungen berücksichtigt werden (Bsp.: Überschriften enthalten oft wichtige Informationen.)
 
 Textextraktion ist sehr viel einfacher als Textabstraktion. Für die Extraktion müssen die Schlüsselstellen ermittelt werden, was mittels empirischen Methoden oder Maschine Learning durchgeführt werden kann. Für die Abstraktion braucht es jedoch zusätzlich ein System, das den Text versteht und Wissen besitzt, wie daraus ein neuer Text geschrieben werden kann. Die meisten automatischen Textsummarization Tools generieren daher nur Extracts und keine Abstracts.
 
 ## Methoden
-Es gibt verschiedene Arten von Textzusammenfassungen. Diese werden bestimmt, durch die Anzahl Dokumente, welche zusammengefasst werden und die Anzahl Sprachen.
+Es gibt verschiedene Arten von Textzusammenfassungen. Diese werden durch die Anzahl Dokumente bestimmt, welche zusammengefasst werden sollen und durch die Anzahl Sprachen.
 
-Bei der _Single-Document Summarization_ wird einer Zusammenfassung eines einzelnen Dokumentes erstellt. Dies ist die einfachste Methode, da alle Informationen innerhalb des Dokumentes als aktuell bewertet werden könne.
+Bei der _Single-Document Summarization_ wird eine Zusammenfassung eines einzelnen Dokumentes erstellt. Dies ist die einfachste Methode, da alle Informationen innerhalb des Dokumentes als aktuell bewertet werden könne.
 
-Bei der _Multi-Document Summarization_ wird eine Zusammenfassung über mehrere Dokumente erstellt, welche in der selben Sprache verfasst sind. Hier werden Dokumente von verschiedenen Quellen für ein Thema zusammengefasst. Eine Schwierigkeit besteht bei dieser Methode darin, dass die Dokumente in den richtigen zeitlichen Kontext gebracht werden müssen. Denn nicht alle Informationen sind gleich aktuell und typischerweise ersetzen neuere Informationen die Älteren. Um die richtigen Aussagen zu machen, muss daher die Zeit berücksichtigt werden, was nicht immer ganz einfach ist. Eine weitere Schwierigkeit bei _multi-Document Summarizations_ besteht darin, thematische Überlappungen von den einzelnen Dokumenten zu identifizieren, um Wiederholungen auszuschliessen. Sehr schwierig wird es jedoch, wenn sich die Dokumente inhaltlich widersprechen. Ein Ansatz kann sein, dass man mit Hilfe des zeitlichen Kontextes aktuelleren Inhalt höher gewichtet.
+Bei der _Multi-Document Summarization_ wird eine Zusammenfassung über mehrere Dokumente erstellt, welche in der selben Sprache verfasst sind. Hier werden Dokumente von verschiedenen Quellen für ein Thema zusammengefasst. Eine Schwierigkeit bei dieser Methode besteht darin, dass die Dokumente in den richtigen zeitlichen Kontext gebracht werden müssen. Denn nicht alle Informationen sind gleich aktuell und typischerweise ersetzen neuere Informationen die Älteren. Um die richtigen Aussagen zu machen, muss daher die Zeit berücksichtigt werden, was nicht immer ganz einfach ist. Eine weitere Schwierigkeit bei _multi-Document Summarizations_ besteht darin, thematische Überlappungen von den einzelnen Dokumenten zu identifizieren, um Wiederholungen auszuschliessen. Sehr schwierig wird es jedoch, wenn sich die Dokumente inhaltlich widersprechen. Ein Ansatz kann sein, dass man mit Hilfe des zeitlichen Kontextes aktuelleren Inhalt höher gewichtet.
 
 Eine weitere Methode ist die _Multi-Lingual Summarization_. Grundsätzlich kann man diese Methode als eine Erweiterung der _Multi-Document Summarization_ betrachten. Im Gegensatz dazu, sind die Dokumente jedoch in unterschiedlichen Sprachen verfasst.
 
@@ -69,10 +69,10 @@ _Positiononal Criteria_:
 Text ist normalerweise strukturiert. Gewisse Bereiche eines Textes (Titel, Textsatz, erster Paragraph, usw.) beinhalten normalerweise wichtige Information. Für gewisse Texte (Bsp. Zeitungsartikel, wissenschaftliche Texte und technische Artikel) erzielt man sogar sehr gute Resultate, wenn man lediglich den ersten Paragraphen extrahiert und als Summary präsentiert. Mit dieser Methode kann man ein Scoring von bis zu 33% erreichen.
 
 _Cue Phrase Indicator Criteria_:
-Für gewisse Texte zeigen Schlüsselwörter, wie z.Bsp. 'signifikant' oder 'in diesem Paper zeigen wir', dass es sich um einen wichtigen Teil handelt. Solche Sätze können mit hoher Zuverlässigkeit für die Erstellung des Summarys extrahiert werden. Zu beachten gilt jedoch, dass jeder dieser Sätze sowohl positive oder negative Attribute haben, was es zu berücksichtigen gilt.
+Für gewisse Texte zeigen Schlüsselwörter, wie z.Bsp. 'signifikant' oder 'in diesem Paper zeigen wir', dass es sich um einen wichtigen Teil handelt. Solche Sätze können mit hoher Zuverlässigkeit für die Erstellung des Summarys extrahiert werden. Zu beachten gilt jedoch, dass jeder dieser Sätze sowohl positive oder negative Attribute haben kann.
 
 _Word and Phrase Frequency Criteria_:
-Bereits 1959 entwickelte Luhn eine Methode, die Wichtigkeit von Wörter mittels dem Zipfschen Gesetz zu bestimmen. Das Zipfsche Gesetzt sagt aus, dass wenige Wörter sehr oft vorkommen, ein paar Wörter kommen ab und zu vor und viele Wörter kommen nur sporadisch vor. @luhn_1959 entwickelte daraus den folgenden Extraktions-Satz: _Falls ein Text gewisse Wörter unüblich oft verwendet, dann sind die Sätze, in denen diese Wörter vorkommen, wahrscheinlich wichtig_. Falls diese Methode richtig angewendet wird, erreicht man einen Score zwischen 15% und 35%. Da diese Methode für alle Sprachen relativ gut funktioniert, ist sie ideal dafür geeignet, für _Multi Lingual Summaries_ eingesetzt zu werden.
+Bereits 1959 entwickelte Luhn eine Methode, die Wichtigkeit von Wörter mittels dem Zipfschen Gesetz zu bestimmen. Das Zipfsche Gesetzt sagt aus, dass wenige Wörter sehr oft vorkommen, ein paar Wörter kommen ab und zu vor und viele Wörter kommen nur sporadisch vor. @luhn_1959 entwickelte daraus den folgenden Extraktions-Satz: _Falls ein Text gewisse Wörter unüblich oft verwendet, dann sind die Sätze, in denen diese Wörter vorkommen, wahrscheinlich wichtig_. Wenn diese Methode richtig angewendet wird, erreicht man einen Score zwischen 15% und 35%. Da diese Methode für alle Sprachen relativ gut funktioniert, ist sie ideal dafür geeignet, für _Multi Lingual Summaries_ eingesetzt zu werden.
 
 _Query and Title Overlap Criteria_:
 Eine relativ effektive und einfache Methode besteht darin, die Anzahl erwünschter Wörter in einem Text zu zählen. Erwünschte Wörter sind solche, welche in Titel oder als Stichworte vorkommen.
@@ -84,24 +84,24 @@ _Combination of Various Module Scores_:
 In keinem der Fälle ist es gelungen, dass eine Methode gleich gute Scores wie ein Mensch erreichte. Jedoch kann durch die Kombination von verschiedenen Methoden die Score signifikant gesteigert werden. Hier wäre denkbar, die Auswahl der Methoden und die Kombination der verschiedenen Scores mittels Machine Learning durchzuführen (Bsp.: Random Forest).
 
 ## Phase 2: Transformation, Interpretation oder Topic Fusion
-Die erste Phase ist eigentlich das, was wir unter _Text Extraction_ verstehen und auch relativ gut gelöst werden kann mit heutigen Systemen. Durch die Interpretations-Phase wird nun der extrahierte Text in ein _Abstract_ umgewandelt. Hierfür werden die extrahierten Teilsätze, Sätze und Paragraphen  zusammengefügt, Ausdrücken verändert und durch neue Sätze formuliert. Damit dies effizient funktioniert, braucht das System Wissen zum Kontext der Zusammenfassung. Genau dies macht es aber sehr schwierig für automatische Systeme. Bis heute gibt es keinen universell einsetzbaren Text Summarizer.
+Die erste Phase ist eigentlich das, was wir unter _Text Extraction_ verstehen und auch relativ gut gelöst werden kann mit heutigen Systemen. Durch die Interpretations-Phase wird nun der extrahierte Text in ein _Abstract_ umgewandelt. Hierfür werden die extrahierten Teilsätze, Sätze und Paragraphen  zusammengefügt, Ausdrücke verändert und durch neue Sätze formuliert. Damit dies effizient funktioniert, braucht das System Wissen zum Kontext der Zusammenfassung. Genau dies macht es aber sehr schwierig für automatische Systeme. Bis heute gibt es keinen universell einsetzbaren Text Summarizer.
 
 ## Phase 3: Synthese oder Summary generation
 In der letzten Phase wird nun, das Summary aus Phase 2, welches lediglich in maschinenlesbarer Form vorhanden ist, wieder in zusammenhängende Sätze umgewandelt. Es gibt hier verschiedene Ansätze: Im Dokument @hirst_1997 wird beschrieben, wie direkt mittels 'Smoothing' ein Extrakt aus Phase 1 in eine lesbare Form gebracht werden kann. Hierfür werden (Teil-)Satzwiederholungen und Wiederholungen von Named Entities eliminiert.
-Ein anderer, interessanter Ansatz verfolgt @knight_marcu_2000: Hier wird das Ergebnis der Phase 2, bei welchem die Sätze in Form eines syntaktischen Baums vorliegen, komprimiert. Dies geschieht mit einem System, welches mit dem Expectation-Maximization-Algorithmus (EM-Algorithmus) trainiert wurde. Das Ziel ist, einzelne Sätze zu kürzen. U.U. können sogar zwei Sätze zu einem oder drei Sätze zu zwei bzw. einem zusammengefasst werden.
+Einen anderen interessanten Ansatz verfolgt @knight_marcu_2000: Hier wird das Ergebnis der Phase 2, bei welchem die Sätze in Form eines syntaktischen Baums vorliegen, komprimiert. Dies geschieht mit einem System, welches mit dem Expectation-Maximization-Algorithmus (EM-Algorithmus) trainiert wurde. Das Ziel ist, einzelne Sätze zu kürzen. U.U. können sogar zwei Sätze zu einem oder drei Sätze zu zwei bzw. einem zusammengefasst werden.
 
 # Evaluation von Summaries
-@sparck_jones_galliers_1996 definieren 2 Arten von Summary Evaluationen: intrinsische Evaluation, bei der nur die Qualität des Outputs betrachtet wird und extrinsische Evaluation, bei der der Umfang der Userinteraktion betrachtet wird. Die meisten Evaluationsmethoden berücksichtigen nur die intrinsische Evaluation. Typischerweise wird für jeden Text ein oder mehrere Summaries von Menschen erstellt. Die Texte der zu vergleichenden Systeme werden dann mit diesen verglichen. Dabei wird die Ausbeute und die Präzision der übereinstimmenden Sätze bzw. Wörter gemessen (siehe Kapitel 'Phase 1: Analyse oder Topic Identification').
+@sparck_jones_galliers_1996 definieren zwei Arten von Summary Evaluationen: intrinsische Evaluation, bei der nur die Qualität des Outputs betrachtet wird und extrinsische Evaluation, bei der der Umfang der Userinteraktion betrachtet wird. Die meisten Evaluationsmethoden berücksichtigen nur die intrinsische Evaluation. Typischerweise wird für jeden Text ein oder mehrere Summaries von Menschen erstellt. Die Texte der zu vergleichenden Systeme werden dann mit diesen verglichen. Dabei wird die Ausbeute und die Präzision der übereinstimmenden Sätze bzw. Wörter gemessen (siehe Kapitel 'Phase 1: Analyse oder Topic Identification').
 
 Grundsätzlich muss jedoch beachtet werden, dass es nicht _die_ korrekte Zusammenfassung gibt. Daher werden in gewissen Evaluationen mehrere von Menschen erstellte Summaries für den Vergleich erstellt. Für den finalen Score wird dann der Schnitt über alle Referenzdokumente ermittelt.
 
-Eine andere Methode, zur intrinsischen Evaluation ist, die von den Systemen erstellten Summaries von Menschen bewerten zu lassen. [Siehe @brandow_mitze_rau_1999]
+Eine andere Methode zur intrinsischen Evaluation ist, die von den Systemen erstellten Summaries von Menschen bewerten zu lassen. [Siehe @brandow_mitze_rau_1999]
 
 ## Messmethoden
 Das Hauptproblem beim Evaluieren von Summaries besteht darin, dass es schwierig ist zu beschreiben, was eine gute Zusammenfassung ausmacht und wie dies gemessen werden kann. Generell kann man sich jedoch an folgende Eckpfeiler halten:
 
-- Ein Zusammenfassung muss kürzer sein als das Original
-- Die wichtigen Informationen (was jedoch Kontextabhängig ist) müssen in der Zusammenfassung vorhanden sein.
+- Eine Zusammenfassung muss kürzer sein als das Original
+- Die wichtigen Informationen (was jedoch kontextabhängig ist) müssen in der Zusammenfassung vorhanden sein.
 
 Somit können folgende zwei Messgrössen definiert werden, die aussagen, inwiefern ein Summary S mit dem original Text T übereinstimmt:
 
@@ -116,7 +116,7 @@ Eine gute Zusammenfassung ist folglich also eine, bei welcher die Kompressionsra
 Idealerweise steigt die Retentionsrate mit zunehmender Textlänge (siehe Abbild 2a). Ab einem gewissen Punkt ist diese jedoch gesättigt (siehe Abbildung 2b). Abbildung 2c zeigt, wie das Verhältnis sich bei weiter steigender Textlänge verhält.
 
 # Schlussfolgerung
-Text Summarization ist ein sehr spannendes Thema, das in der jüngsten Zeit durch die massive Zunahme von frei zugänglichen Texten ein enormes Potential aufweist. Für bestimmte Bereiche wie z. Bsp. News wurde das Problem einigermassen gelöst. Trotz intensiver Forschung existiert aber bis heute immer noch kein System zur generellen Text Zusammenfassungen. Im Gegensatz dazu funktioniert Text Extraction sehr gut. Hier erreicht man durch statistische Auswertungen relativ gut Resultate. Neuere Ansätze verwenden dazu auch Machine Learning bzw. Deep Learning wie z. Bsp. RNNs.
+Text Summarization ist ein sehr spannendes Thema, das in der jüngsten Zeit durch die massive Zunahme von frei zugänglichen Texten ein enormes Potential aufweist. Für bestimmte Bereiche wie z. Bsp. News wurde das Problem einigermassen gelöst. Trotz intensiver Forschung existiert aber bis heute immer noch kein System zur generellen Textzusammenfassungen. Im Gegensatz dazu funktioniert Text Extraction sehr gut. Hier erreicht man durch statistische Auswertungen relativ gute Resultate. Neuere Ansätze verwenden dazu auch Machine Learning bzw. Deep Learning wie z. Bsp. RNNs.
 
 Ein funktionierendes System würde jedoch vielfältige Probleme lösen und die künstliche Intelligenz auf ein neues Niveau heben. Es bleibt auf alle Fälle spannend und es lohnt sich, dieses Thema in Zukunft weiter zu verfolgen.
 
